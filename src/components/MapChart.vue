@@ -1,9 +1,12 @@
 <template>
+  <!-- This is the way -->
   <div id="myMap" ref="myMap"></div>
-  <!--Highcharts
+
+  <!-- This is not the way, but the docs says otherwise... Works this way on plain Vue.js -->
+  <!--highcharts
     :constructorType="'mapChart'"
     :options="chartOptions"
-  ></Highcharts-->
+  ></highcharts-->
 </template>
 <script setup>
 import { onMounted, ref } from "vue";
@@ -72,12 +75,9 @@ const chartOptions = {
   ],
 };
 
-//Highcharts.maps["myMap"] = mapData;
 const myMap = ref(null);
 onMounted(() => {
   if (myMap.value) {
-    //HighchartsMapModule(Highcharts);
-    //Highcharts.maps["myMapName"] = mapData;
     //accessabilityInit(Highcharts);
     HighchartsMapModule.mapChart("myMap", chartOptions);
   }
